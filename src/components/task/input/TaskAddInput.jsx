@@ -3,8 +3,10 @@ import React from "react";
 const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-    setTaskList([...taskList, { text: inputText }]);
+    if (inputText === "") {
+      return;
+    }
+    setTaskList([...taskList, { id: taskList.length, text: inputText }]);
     setInputText("");
   };
 
