@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const AddTaskCardButton = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default AddTaskCardButton
+export default AddTaskCardButton;
