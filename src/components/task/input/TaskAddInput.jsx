@@ -1,7 +1,10 @@
 import React from "react";
+import { v4 as uuid } from "uuid"; // ユニークなidを生成するライブラリ
 
 const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
+  // エンター押下時の処理
   const handleSubmit = (e) => {
+    const taskId = uuid();
     e.preventDefault();
     if (inputText === "") {
       return;
@@ -9,14 +12,15 @@ const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
     setTaskList([
       ...taskList,
       {
-        id: taskList.length,
-        draggableId: `task-${taskList.length}`,
+        id: taskId,
+        draggableId: `task-${taskId}`,
         text: inputText,
       },
     ]);
     setInputText("");
   };
 
+  // タスク名入力時の処理
   const handleChange = (e) => {
     setInputText(e.target.value);
     console.log(inputText);
