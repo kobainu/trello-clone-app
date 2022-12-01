@@ -6,7 +6,14 @@ const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
     if (inputText === "") {
       return;
     }
-    setTaskList([...taskList, { id: taskList.length, text: inputText }]);
+    setTaskList([
+      ...taskList,
+      {
+        id: taskList.length,
+        draggableId: `task-${taskList.length}`,
+        text: inputText,
+      },
+    ]);
     setInputText("");
   };
 
